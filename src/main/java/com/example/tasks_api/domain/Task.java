@@ -11,8 +11,8 @@ public class Task {
     @Id
     private String id;
 
-    private String title;
-    private String description;
+    @NotBlank @Size(max = 140) private String title;
+    @Size(max = 1000) private String description;
     private boolean done;
     private Instant createdAt;
 
