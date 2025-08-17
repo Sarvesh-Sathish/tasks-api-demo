@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/tasks")
 public class TaskController {
     private final TaskService taskService;
     public TaskController(TaskService taskService) {
@@ -19,7 +20,8 @@ public class TaskController {
         return taskService.all();
     }
 
-    @GetMapping("/id") public Task one(@PathVariable String id) {
+    @GetMapping("/{id}")
+    public Task one(@PathVariable String id) {
         return taskService.get(id);
     }
 
